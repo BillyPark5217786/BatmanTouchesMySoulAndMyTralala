@@ -14,8 +14,8 @@
 		<script src='assets/GeoJSON/Scl_Hs_2016.js'></script>
 		<script src='assets\GeoJSON\Income_4000.js'></script>
 		<script src='assets/GeoJSON/Social_Housing_2011.js'></script>
-		<script src= 'assets\GeoJSON\M_RentWeeklyDiff_16_11.js'></script>
-		<script src= 'assets\GeoJSON\MortgageDifference.js'></script>
+		<script src= 'assets\GeoJSON\RentDifference.js'></script>
+		<script src= 'assets\GeoJSON\MortgageDifference.js'></script>		<script src= 'assets\GeoJSON\TotalFamilyIncomeDifference.js'></script>
 		<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
     <style>
@@ -23,6 +23,7 @@
         #map { position:absolute; top:0; bottom:0; width:100%; }
 				#map2 { position:absolute; top:0; bottom:0; width:100%; }
 				#map3 { position:absolute; top:0; bottom:0; width:100%; }
+				#map4 { position:absolute; top:0; bottom:0; width:100%; }
 				#menu {
 				background: #fff;
 				position: absolute;
@@ -59,6 +60,42 @@
 				#menu a.active:hover {
 				background: #3074a4;
 				}
+				#menu2 {
+				background: #fff;
+				position: absolute;
+				z-index: 1;
+				top: 10px;
+				right: 10px;
+				border-radius: 3px;
+				width: 120px;
+				border: 1px solid rgba(0,0,0,0.4);
+				font-family: 'Open Sans', sans-serif;
+							}
+				#menu2 a {
+				font-size: 13px;
+				color: #404040;
+				display: block;
+				margin: 0;
+				padding: 0;
+				padding: 10px;
+				text-decoration: none;
+				border-bottom: 1px solid rgba(0,0,0,0.25);
+				text-align: center;
+				}
+				#menu2 a:last-child {
+				border: none;
+				}
+				#menu2 a:hover {
+				background-color: #f8f8f8;
+				color: #404040;
+				}
+				#menu2 a.active {
+				background-color: #3887be;
+				color: #ffffff;
+				}
+				#menu2 a.active:hover {
+				background: #3074a4;
+				}
     </style>
 	</head>
 	<body class="is-preload">
@@ -69,10 +106,10 @@
 				<!-- One -->
 					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
 						<div class="content">
-							<h1>Story</h1>
-							<p class="major">Housing in Sydney?</p>
-							<p>Billy Park - z5217786</p>
-							<p>Starting in 2016 the current Census was taken with much controversy. It is up to this agency to collect and record data. Data is essential to fund my crack cocaine habbit. If my wife ever finds out about this she will take my kids away. Please come along for the adventure of a lifetime</p>
+							<h1>Sydney</h1>
+							<p class="major">Rental & Housing Affordability in Sydney</p>
+							<p>This project looks at the rate of rent and mortgage repayments within Sydney using Census Data. With a special focus on rent being paid towards housing authorities, and the income associated.</p>
+							<p><b>Billy Park - z5217786</b></p>
 							<ul class="actions stacked">
 								<li><a href="#first" class="button big wide smooth-scroll-middle">Get Started</a></li>
 							</ul>
@@ -82,14 +119,33 @@
 						</div>
 					</section>
 
-				<!-- Two A -->
+				<!-- One A -->
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in"  id="first">
+						<div class="content">
+							<h2>The Data</h2>
+							<p>The data being used is taken from the 2016 and 2011 Australian Census issued by the Australian Bureau of Statistics (ABS). The data is displayed in the form of a Mesh Block, defined by the ABS as the "smallest geographical area." The data has been organised in a Statistical Area 1 (SA1) as group of Mesh Blocks, they are the smallest unit to release census data with population information. The population of an SA1 ranges from 200 to 800 persons with an average of around 400 per SA1. Both the 2011 and 2016 census were conducted on 9th August.</p>
+							<ul>The data in use for this article is using the:
+								<ul>2016:
+									<li>G34 Mortgage Repayment (Monthly) by Dwelling Structure</li>
+									<li>G36 Rent (weekly) by Landlord Type</li>
+									<li>G02 Selected Medians and Averages</li>
+								</ul>
+								<ul>2011:
+									<li>B33 Mortgage Repayment (Monthly) by Dwelling Structure</li>
+									<li>B34 Rent (weekly) by Landlord Type</li>
+									<li>B02 Selected Medians and Averages</li>
+								</ul>
+							</ul>
+							<p>Initialy I chose these datasets to compare whether rent was higher being paid towards real estate agents vs. private landlords. My thinking being that real estate agents were greedy money grubing wastes of oxygen who only care about the bottom dollar rather than offering a property that isn't mold infested, collapsing, and barely meeting the fire code; that would charge more for rent. As opposed to private landlords who don't report their income to the tax office and fill a 3x4 metre bedroom with triple-decker bunk beds charging $110 per person. A viewpoint I established after moving down to Sydney which I don't hold a passionate grudge against and am not looking to spite them in every possible manor I can at every oppourtunity.</p>
+							<p>I was then suggested to look at the data relating to social housing. Choosing to look at Social housing and mortgages within Sydney to see wheter there was a correlation whether there was less social housing around areas with higher rent and mortgaes</p>
+						</div>
+					</section>
+
+				<!-- Two -->
 					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
-							<h2>Batman</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
-							<ul class="actions stacked">
-								<li><a href="#" class="button">Learn More</a></li>
-							</ul>
+							<h2>The Latte Line</h2>
+							<p>The latte line is a perceived boundry that separates Sydney through class, education, social and economic divides. North of the border is seen as being more wealthly advantageous. The boundry is usually represented as running from the south of Sydney at the Airport to the north-east towards Parramatta.<br></br>This map shows the proportion of mortgages over $4000. The darker the area the higher the proportion of mortgages over $4000. Laying down a line across the divide shows how the proportion of wealth is distributed across Sydney.</p>
 						</div>
 						<div class="image">
 							<div id= 'map3'></div>
@@ -98,7 +154,7 @@
 								var mapthree = new mapboxgl.Map({
 								    container: 'map3', // container id
 								    style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
-								    center: [ 151.194256,-33.908958], // starting position [lng, lat]
+								    center: [151.004105, -33.813002], // starting position [lng, lat]
 								    zoom: 9, // starting zoom,
 								});
 								mapthree.on('load', function(){
@@ -115,7 +171,7 @@
 												'property': "Differ",
 												"stops":[
 												[0, '#FFFFFF'],
-												[50, '#FF0000']
+												[50, '#7A2020']
 												]
 											},
 											'fill-opacity': 0.8
@@ -143,8 +199,8 @@
 											'line-cap': "round"
 										},
 										'paint':{
-											'line-color': '#888',
-											'line-width': 8
+											'line-color': '#000',
+											'line-width': 2
 										}
 									});
 								});
@@ -153,13 +209,10 @@
 					</section>
 
 				<!-- Two A -->
-					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" >
 						<div class="content">
-							<h2>Magna etiam feugiat</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
-							<ul class="actions stacked">
-								<li><a href="#" class="button">Learn More</a></li>
-							</ul>
+							<h2>Mortgage Difference</h2>
+							<p>The data here shows the difference in mortgages between 2011 and 2016. With the Increase in repayment ammount equating to height. The difference in coulour representing the current cost of mortgaes in 2016, darker equals a higher monthly repayment. </p>
 						</div>
 						<div class="image">
 							<div id='map2'></div>
@@ -168,9 +221,9 @@
 								var maptwo = new mapboxgl.Map({
 								    container: 'map2', // container id
 								    style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
-								    center: [151.231347,-33.916924], // starting position [lng, lat]
-								    //pitch: 45,
-								    //bearing: -17.6,
+								    center: [151.004105, -33.813002], // starting position [lng, lat]
+								    pitch: 45,
+								    bearing: -17.6,
 								    zoom: 9// starting zoom
 								});
 								maptwo.on('load', function() {
@@ -187,7 +240,7 @@
 								              'property': '16_mortgag',
 								              "stops":[
 								              [0, '#FFFFFF'],
-								              [3500, '#FF0000']
+								              [3500, '#7A2020']
 								              ]
 
 								      },
@@ -195,25 +248,185 @@
 								        'property': 'Mort_Diff',
 								        "stops":[
 								        [0.0002, 0],
-								        [1, 1000]
+								        [1, 5000]
 								      ]
 								    },
 								      'fill-extrusion-opacity': .7
 								    }
 								  });
-								});
+										maptwo.addLayer({
+											"id":"LatteLine",
+											"type": "line",
+											"source": {
+												"type": 'geojson',
+												'data': {
+													"type": "Feature",
+													"properties": {},
+													"geometry": {
+														"type":"LineString",
+														"coordinates": [
+															[151.195974, -33.973336],
+															[150.711421, -33.528185]
+														]
+													}
+												}
+											},
+											'layout': {
+												'line-join': "round",
+												'line-cap': "round"
+											},
+											'paint':{
+												'line-color': '#000',
+												'line-width': 2
+											}
+										});
+									});
 								</script>
 							</div>
 					</section>
 
-				<!-- Three -->
+					<!-- Two B -->
 					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
+							<h2>Rent Difference</h2>
+							<p>Data shown here represents the avergae median weekly rent. The height represents the increase of rent from 2011 to 2016, higher the bar, increase of rent. Darker the block represents the higher the rent in 2016. Comparing it with the difference in household income from 2011 to 2016 shows that as with correlation to the latte line houshold income has still remained higher north of the border</p>
+							<p></p>
+						</div>
+						<div class="image">
+							<div id='map4'></div>
+							<nav id="menu2"></nav>
+							<script>
+								mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbHlwYXJrIiwiYSI6ImNqbGVpNnp4dzBtZTYzcGxxanFhNTRld3QifQ.vAG7tk8UVZuoE3KDCzC5NQ';
+								var mapfour = new mapboxgl.Map({
+								    container: 'map4', // container id
+								    style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
+								    center: [151.004105, -33.813002], // starting position [lng, lat]
+								    pitch: 45,
+								    bearing: -17.6,
+								    zoom: 9// starting zoom
+								});
+								mapfour.on('load', function() {
+
+								  mapfour.addLayer({
+										"id": "TotalFamilyIncomeDifference",
+								    "type": "fill-extrusion",
+								    "source": {
+								            'type': 'geojson',
+								            'data': TotalFamilyIncomeDifference
+								      },
+								        'paint': {
+								            'fill-extrusion-color' : {
+								              'property': 'F_Inc_2016',
+								              "stops":[
+								              [0, '#8F5AB8'],
+								              [3500, '#5EE0AF']
+								              ]
+
+								      },
+								      'fill-extrusion-height' : {
+								        'property': 'F_Inc_Diff',
+								        "stops":[
+								        [0.0002, 0],
+								        [1, 5000]
+								      ]
+								    },
+								      'fill-extrusion-opacity': .7
+								    }
+								  });
+									mapfour.addLayer({
+										"id": "RentDifference",
+										"type": "fill-extrusion",
+										"source": {
+														'type': 'geojson',
+														'data': RentDifference
+											},
+												'paint': {
+														'fill-extrusion-color' : {
+															'property': 'Rent_W_16',
+															"stops":[
+															[0, '#FFFFFF'],
+															[800, '#000']
+															]
+
+											},
+											'fill-extrusion-height' : {
+												'property': 'Rent_Diff',
+												"stops":[
+												[0.0002, 0],
+												[1, 5000]
+											]
+										},
+											'fill-extrusion-opacity': .7
+										}
+									});
+									mapfour.addLayer({
+										"id":"LatteLine",
+										"type": "line",
+										"source": {
+											"type": 'geojson',
+											'data': {
+												"type": "Feature",
+												"properties": {},
+												"geometry": {
+													"type":"LineString",
+													"coordinates": [
+														[151.195974, -33.973336],
+														[150.711421, -33.528185]
+													]
+												}
+											}
+										},
+										'layout': {
+											'line-join': "round",
+											'line-cap': "round"
+										},
+										'paint':{
+											'line-color': '#000',
+											'line-width': 2
+										}
+									});
+									});
+									//LIST OF LayerIDs and Display Text
+									var toggleableLayerIds = ['TotalFamilyIncomeDifference', 'RentDifference'];
+									var toggleableLayerText = ['Household Income', 'Rent'];
+
+									//TOGGLE
+									for (var i = 0; i < toggleableLayerIds.length; i++) {
+										var id = toggleableLayerIds[i];
+										var idText= toggleableLayerText[i];
+										var link = document.createElement('a');
+										link.href = '#';
+										link.className = 'active';
+										link.textContent = idText;
+										link.textId = id;
+										link.onclick = function (e) {
+											var clickedLayer = this.textId;
+											e.preventDefault();
+											e.stopPropagation();
+											var visibility = mapfour.getLayoutProperty(clickedLayer, 'visibility');
+											if (visibility === 'visible') {
+												mapfour.setLayoutProperty(clickedLayer, 'visibility', 'none');
+												this.className = '';
+											} else {
+												this.className = 'active';
+												mapfour.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+											}
+										};
+										var layers = document.getElementById('menu2');
+										layers.appendChild(link);
+									}
+								</script>
+						</div>
+					</section>
+
+				<!-- Three -->
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
 							<h2>Social Housing</h2>
-							<p>The data here shows the rent being paid to housing authorities within Sydney</p>
-							<ul class="actions stacked">
-								<li><a href="#" class="button">Learn More</a></li>
-							</ul>
+							<p>Shown here is the difference between the ammount of social housing in Sydney between 2011 and 2016.Since 2011 there has been a decrease in the use of social housing according to the data. This could be attributed for there no longer being a need for such an abundence of social housing within Sydney. It could also be attributed to a cutback in social housing funding. One interesting corelation to make is that between 2011 and 2016 there has been a decrease in social housing around Barangaroo. This can be blamed in part on the development of the Barangaroo precinct between that timeframe.</p>
+							<p>Overlaying the data on to the train network shows that most of social housing is located close within vicinity of a train line. This would be attributed to the lack of resources such as a car that most low income households may not be able to support.</p>
+							<p>Applying income data over the top of the shows that areas with the most social housing have the lowest income in 2016 and the lowest income growth between 2011 and 2016. A majority of the the housing as seen on the map is located in the west of Sydney.</p>
+							<p>I chose to overlay the income data with the social income data to better show the impoverished financial conditions shown within the western suburbs of Sydney.</p>
 						</div>
 						<div class="image">
 							<nav id="menu"></nav>
@@ -231,6 +444,18 @@
 							map.on('load', function(){
 
 								map.addLayer({
+									"id":"Social_Housing_2011",
+									"type": "fill",
+									"source": {
+										"type": 'geojson',
+										'data': Social_Housing_2011
+									},
+									'paint': {
+										'fill-color': '#00C7C1',
+										'fill-opacity': 0.9
+									}
+								});
+								map.addLayer({
 									"id":"Scl_Hs_2016",
 									"type": "fill",
 									"source": {
@@ -243,21 +468,35 @@
 									}
 								});
 								map.addLayer({
-									"id":"Social_Housing_2011",
-									"type": "fill",
+									"id": "TotalFamilyIncomeDifference",
+									"type": "fill-extrusion",
 									"source": {
-										"type": 'geojson',
-										'data': Social_Housing_2011
+													'type': 'geojson',
+													'data': TotalFamilyIncomeDifference
+										},
+											'paint': {
+													'fill-extrusion-color' : {
+														'property': 'F_Inc_2016',
+														"stops":[
+														[0, '#900C3F'],
+														[2800, '#F1CFCF']
+														]
+
+										},
+										'fill-extrusion-height' : {
+											'property': 'F_Inc_Diff',
+											"stops":[
+											[0.0002, 0],
+											[1, 5000]
+										]
 									},
-									'paint': {
-										'fill-color': '#00C7C1',
-										'fill-opacity': 0.9
+										'fill-extrusion-opacity': .7
 									}
 								});
 							});
 							//LIST OF LayerIDs and Display Text
-							var toggleableLayerIds = ['Scl_Hs_2016', 'Social_Housing_2011'];
-							var toggleableLayerText = ['2016', '2011'];
+							var toggleableLayerIds = ['Scl_Hs_2016', 'Social_Housing_2011', 'TotalFamilyIncomeDifference'];
+							var toggleableLayerText = ['2016', '2011', 'Income'];
 
 							//TOGGLE
 							for (var i = 0; i < toggleableLayerIds.length; i++) {
@@ -289,293 +528,34 @@
 					</section>
 
 				<!-- Four -->
-					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-						<div class="content">
-							<h2>Pharetra etiam nulla</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
-							<ul class="actions stacked">
-								<li><a href="#" class="button">Learn More</a></li>
-							</ul>
-						</div>
-						<div class="image">
-							<img src="images/spotlight03.jpg" alt="" />
-						</div>
-					</section>
-
-				<!-- Four A -->
-					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-						<div class="content">
-							<h2>Batman</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
-							<ul class="actions stacked">
-								<li><a href="#" class="button">Learn More</a></li>
-							</ul>
-						</div>
-						<div class="image">
-							<img src="images/spotlight03.jpg" alt="" />
-						</div>
-					</section>
-
-				<!-- Five -->
 					<section class="wrapper style1 align-center">
 						<div class="inner">
-							<h2>Massa sed condimentum</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.</p>
+							<h2>Conclusion</h2>
+							<p>The latte line is a signifigant problem in the development of Sydney in the coming future. For Sydney to become a livable commutable city there needs to be significant changes to the transport infrastructure. More government involvement regulating prices of rent within the city and surrounding suburbs.</p>
 						</div>
 
-						<!-- Gallery -->
-							<div class="gallery style2 medium lightbox onscroll-fade-in">
-								<article>
-									<a href="images/gallery/fulls/01.jpg" class="image">
-										<img src="images/gallery/thumbs/01.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Ipsum Dolor</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/02.jpg" class="image">
-										<img src="images/gallery/thumbs/02.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Feugiat Lorem</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/03.jpg" class="image">
-										<img src="images/gallery/thumbs/03.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Magna Amet</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/04.jpg" class="image">
-										<img src="images/gallery/thumbs/04.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Sed Tempus</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/05.jpg" class="image">
-										<img src="images/gallery/thumbs/05.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Ultrices Magna</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/06.jpg" class="image">
-										<img src="images/gallery/thumbs/06.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Sed Tempus</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/07.jpg" class="image">
-										<img src="images/gallery/thumbs/07.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Ipsum Lorem</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/08.jpg" class="image">
-										<img src="images/gallery/thumbs/08.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Magna Risus</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/09.jpg" class="image">
-										<img src="images/gallery/thumbs/09.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Tempus Dolor</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/10.jpg" class="image">
-										<img src="images/gallery/thumbs/10.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Sed Etiam</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/11.jpg" class="image">
-										<img src="images/gallery/thumbs/11.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Magna Lorem</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/12.jpg" class="image">
-										<img src="images/gallery/thumbs/12.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Ipsum Dolor</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
+						<section class="wrapper style1 align-left">
+							<div class="inner">
+								<h2>Refferences</h2>
+								<p>Australian Bureau of Statistics 2016 Census Data SA1, 28 March 2018 <i>Australian Bureau of Statistics</i>, Accessed 29 August 2018 https://datapacks.censusdata.abs.gov.au/datapacks/</p>
+								<p>Australian Bureau of Statistics 2011 Census Data SA1, 28 March 2018 <i>Australian Bureau of Statistics</i>, Accessed 29 August 2018 https://datapacks.censusdata.abs.gov.au/datapacks/</p>
+								<p>Gladstone, N 2018, Sydney's latte line exposes a city divided, 28 March 2018 <i>Sydney Morning Herald</i>, Accessed 14 September 2018 https://www.smh.com.au/national/nsw/sydney-s-latte-line-exposes-a-city-divided-20180327-p4z6et.html</p>
+								<p>Gladstone, N 2018, How Sydney's latte line is splitting the workforce, 1 August 2018 <i>Sydney Morning Herald</i>, Accessed 14 September 2018 https://www.smh.com.au/national/nsw/how-sydney-s-latte-line-is-splitting-the-workforce-20180625-p4znl0.html</p>
+								<p>Lee, C, et al 2018, Another tale of two cities: access to jobs divides Sydney along the ‘latte line’, 22 June 2018 <i>The Conversation</i>, Accessed 16 September 2018 https://theconversation.com/another-tale-of-two-cities-access-to-jobs-divides-sydney-along-the-latte-line-96907?utm_medium=email&utm_campaign=Latest%20from%20The%20Conversation%20for%20June%2022%202018%20-%20104699242&utm_content=Latest%20from%20The%20Conversation%20for%20June%2022%202018%20-%20104699242+CID_dc676bc00c58cbc694e38d5ae46de9ab&utm_source=campaign_monitor&utm_term=Another%20tale%20of%20two%20cities%20access%20to%20jobs%20divides%20Sydney%20along%20the%20latte%20line</p>
+								<p>Meyer, P 1967, A Survey of Attitudes of Detroit Negroes After the Riot of 1967, 1967 <i>Detroit Urban League</i>, Accessed 20 September 2018 https://s3.amazonaws.com/s3.documentcloud.org/documents/2070181/detroit1967.pdf</p>
+								<p>Bell, M 2015, What is data journalism?, 4 Feb 2015 <i>Vox</i>, Accessed 20 September 2018 https://www.vox.com/2015/2/4/7975535/what-is-data-journalism</p>
+								<p>Rogers, S 2017, What does data journalism look like today? A 10-step guide, 20 November 2017 <i>Medium</i>, Accessed 20 September 2018 https://medium.com/data-journalism-awards/what-does-data-journalism-look-like-today-a-10-step-guide-6dd90c1f0c25</p>
+								<p>Demian, M 2017, What does data journalism look like today? A 10-step guide, 10 June 2017 <i>Medium</i>, Accessed 20 September 2018 https://medium.freecodecamp.org/data-journalism-isnt-for-the-select-let-s-work-out-a-story-together-from-scratch-dd85b3017f4a</p>
+								<p>Bradshaw, P 2010, How to be a data journalist A 10-step guide, 1 October 2010 <i>Medium</i>, Accessed 20 September 2018 https://www.theguardian.com/news/datablog/2010/oct/01/data-journalism-how-to-guide</p>
 							</div>
-
-					</section>
-
-				<!-- Six -->
-					<section class="wrapper style1 align-center">
-						<div class="inner">
-							<h2>Ipsum sed consequat</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.</p>
-							<div class="items style1 medium onscroll-fade-in">
-								<section>
-									<span class="icon style2 major fa-diamond"></span>
-									<h3>Lorem</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-save"></span>
-									<h3>Ipsum</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-bar-chart"></span>
-									<h3>Dolor</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-wifi"></span>
-									<h3>Amet</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-cog"></span>
-									<h3>Magna</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-paper-plane"></span>
-									<h3>Tempus</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-desktop"></span>
-									<h3>Aliquam</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-refresh"></span>
-									<h3>Elit</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-hashtag"></span>
-									<h3>Morbi</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-bolt"></span>
-									<h3>Turpis</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-envelope"></span>
-									<h3>Ultrices</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon style2 major fa-leaf"></span>
-									<h3>Risus</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-							</div>
-						</div>
-					</section>
-
-				<!-- Seven -->
-					<section class="wrapper style1 align-center">
-						<div class="inner medium">
-							<h2>Get in touch</h2>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field half">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" value="" />
-									</div>
-									<div class="field half">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" value="" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="6"></textarea>
-									</div>
-								</div>
-								<ul class="actions special">
-									<li><input type="submit" name="submit" id="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-
-						</div>
-					</section>
+						</section>
 
 				<!-- Footer -->
 					<footer class="wrapper style1 align-center">
 						<div class="inner">
 							<ul class="icons">
 								<div class="wrapper style1 align-center">
-									<a href="https://youtu.be/j3tszcxA8jQ?t=53"><span class="icon style2 major fa-hashtag"><br></br>The Rob Button</span></a>
+									<a href="https://youtu.be/qj8kMmUxkSE?t=34"><span class="icon style2 major fa-hashtag"><br></br><h1>The Rob Button</h1></span></a>
 								</div>
 							</ul>
 							<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
